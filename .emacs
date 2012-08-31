@@ -71,14 +71,56 @@
 (setq inferior-lisp-program "sbcl") 
 (slime-setup '(slime-fancy))
 
-;  Set Paren Matching
-; (show-paren-mode 1)
+;; Stop SLIME's REPL from grabbing DEL,
+;; which is annoying when backspacing over a '('
+(defun override-slime-repl-bindings-with-paredit ()
+  (define-key slime-repl-mode-map
+    (read-kbd-macro paredit-backward-delete-key) nil))
+(add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
+
+
+;  Set Paren Matching (highlights the matching paren)
+(show-paren-mode 1)
+(require 'paren)
+(set-face-background 'show-paren-match-face (face-background 'default))
+(set-face-foreground 'show-paren-match-face "#221")
+(set-face-attribute 'show-paren-match-face nil :weight 'extra-bold)
+
+;; Paredit
 (autoload 'paredit-mode "paredit"
       "Minor mode for pseudo-structurally editing Lisp code." t)
-    (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
     (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
     (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
     (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+
+;; Paredit electric return
+(defvar electrify-return-match
+  "[\]}\)\"]"
+  "If this regexp matches the text after the cursor, do an \"electric\"
+  return.")
+(defun electrify-return-if-match (arg)
+  "If the text after the cursor matches `electrify-return-match' then
+  open and indent an empty line between the cursor and the text.  Move the
+  cursor to the new line."
+  (interactive "P")
+  (let ((case-fold-search nil))
+    (if (looking-at electrify-return-match)
+        (save-excursion (newline-and-indent)))
+    (newline arg)
+    (indent-according-to-mode)))
+
+; Emacs lisp mode hook  
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (paredit-mode t)
+            (turn-on-eldoc-mode)
+            (eldoc-add-command
+             'paredit-backward-delete
+             'paredit-close-round)
+            (local-set-key (kbd "RET") 'electrify-return-if-match)
+            (eldoc-add-command 'electrify-return-if-match)
+            (show-paren-mode t)))
+
 
 ;  Require Paren Highlighting
 (require 'highlight-parentheses)
