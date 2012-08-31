@@ -78,13 +78,13 @@
     (read-kbd-macro paredit-backward-delete-key) nil))
 (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
 
-
 ;  Set Paren Matching (highlights the matching paren)
 (show-paren-mode 1)
 (require 'paren)
-(set-face-background 'show-paren-match-face (face-background 'default))
-(set-face-foreground 'show-paren-match-face "#221")
-(set-face-attribute 'show-paren-match-face nil :weight 'extra-bold)
+;(set-face-background 'show-paren-match-face (face-background 'default))
+(set-face-background 'show-paren-match-face "cornflowerblue")
+(set-face-foreground 'show-paren-match-face "white")
+;(set-face-attribute 'show-paren-match-face nil :weight 'extra-bold)
 
 ;; Paredit
 (autoload 'paredit-mode "paredit"
@@ -125,8 +125,9 @@
 ;  Require Paren Highlighting
 (require 'highlight-parentheses)
 (setq hl-paren-colors
-      '("greenyellow" "magenta1" "green1" "yellow1" "gold"
-        "purple" "springgreen1" "slateblue1" "orange1"))
+      '("red3" "green3" "yellow3" "blue3" "purple3" "orange3"
+        "red4" "green4" "yellow4" "blue4" "purple4" "orange4"))
+
  (define-globalized-minor-mode global-highlight-parentheses-mode
   highlight-parentheses-mode
 	  (lambda ()
