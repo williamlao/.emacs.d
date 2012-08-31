@@ -125,8 +125,8 @@
 ;  Require Paren Highlighting
 (require 'highlight-parentheses)
 (setq hl-paren-colors
-      '("orange1" "yellow1" "greenyellow" "green1"
-        "springgreen1" "cyan1" "slateblue1" "magenta1" "purple"))
+      '("greenyellow" "magenta1" "green1" "yellow1" "gold"
+        "purple" "springgreen1" "slateblue1" "orange1"))
  (define-globalized-minor-mode global-highlight-parentheses-mode
   highlight-parentheses-mode
 	  (lambda ()
