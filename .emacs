@@ -91,6 +91,19 @@
 		  (highlight-parentheses-mode t)))
 			(global-highlight-parentheses-mode t)
 
+(add-to-list 'load-path "which-folder-ace-jump-mode-file-in/")
+;; 
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
 ;  Show Whitespace
 (require 'whitespace)
 (global-set-key (kbd "C-x w") 'whitespace-mode)
