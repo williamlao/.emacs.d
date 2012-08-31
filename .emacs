@@ -81,10 +81,10 @@
 ;  Set Paren Matching (highlights the matching paren)
 (show-paren-mode 1)
 (require 'paren)
-;(set-face-background 'show-paren-match-face (face-background 'default))
-(set-face-background 'show-paren-match-face "cornflowerblue")
-(set-face-foreground 'show-paren-match-face "white")
-;(set-face-attribute 'show-paren-match-face nil :weight 'extra-bold)
+(set-face-background 'show-paren-match-face (face-background 'default))
+;(set-face-background 'show-paren-match-face "grey80")
+(set-face-foreground 'show-paren-match-face "red1")
+(set-face-attribute 'show-paren-match-face nil :weight 'extra-bold)
 
 ;; Paredit
 (autoload 'paredit-mode "paredit"
