@@ -125,8 +125,8 @@
 ;  Require Paren Highlighting
 (require 'highlight-parentheses)
 (setq hl-paren-colors
-      '("red3" "green3" "yellow3" "blue3" "purple3" "orange3"
-        "red4" "green4" "yellow4" "blue4" "purple4" "orange4"))
+      '("red3" "darkgreen" "yellow3" "purple3" "orange3" "blue3"
+        "red4" "darkgreen" "yellow4" "purple4" "orange4" "blue4"))
 
  (define-globalized-minor-mode global-highlight-parentheses-mode
   highlight-parentheses-mode
@@ -159,8 +159,12 @@
 (define-key global-map "\M-]" 'shrink-window) ; Shrink window vertically
 
 (global-set-key "\C-l" 'goto-line) ; [Ctrl]-[L] 
-(global-set-key (kbd "C-x C-l") 'toggle-truncate-lines) ; enable/disable word wrap
 (global-set-key (kbd "C-x C-b") 'buffer-menu) ; Buffer Menu in present window
+
+;(setq word-wrap nil)
+;(setq visual-line-mode t) 
+(setq-default truncate-lines t) ; default word-wrap to false
+(global-set-key (kbd "C-x C-l") 'toggle-truncate-lines) ; enable/disable word-wrap
 
 (defun remove-dos-eol ()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
