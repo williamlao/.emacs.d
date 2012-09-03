@@ -96,7 +96,7 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 # Bash git-flow-completion
-#source ~/.git-flow-completion.sh
+source ~/.git-flow-completion.sh
 
 #Scarecrow bash-completion
 source ~/code/scarecrow/scarecrow-completion.bash
