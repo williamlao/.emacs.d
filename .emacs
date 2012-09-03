@@ -62,14 +62,14 @@
 (setq java-indent-mode 2)
 (setq c-basic-offset 2)
 
-;  Slime
-(add-to-list 'load-path "~/.emacs.d/slime-2012-07-05")
-(require 'slime)
-(setq slime-net-coding-system 'utf-8-unix)
-(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
-(setq inferior-lisp-program "sbcl") 
-(slime-setup '(slime-fancy))
+;  Slime (commenting out for now to use clojure-jack-in)
+;(add-to-list 'load-path "~/.emacs.d/slime-2012-07-05")
+;(require 'slime)
+;(setq slime-net-coding-system 'utf-8-unix)
+;(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+;(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+;(setq inferior-lisp-program "sbcl") 
+;(slime-setup '(slime-fancy))
 
 ;; Stop SLIME's REPL from grabbing DEL,
 ;; which is annoying when backspacing over a '('
