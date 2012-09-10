@@ -62,6 +62,12 @@
 (setq java-indent-mode 2)
 (setq c-basic-offset 2)
 
+; Mamalade packages
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 ;  Slime (commenting out for now to use clojure-jack-in)
 ;(add-to-list 'load-path "~/.emacs.d/slime-2012-07-05")
 ;(require 'slime)
@@ -188,6 +194,11 @@
 
 ;  Clojure Mode
 (require 'clojure-mode)
+(setq auto-mode-alist  (cons '(".d$" . clojure-mode) auto-mode-alist))
+
+; require nrepl
+(require 'nrepl)
+
 
 ;  Javascript Mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
