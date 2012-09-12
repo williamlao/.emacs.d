@@ -189,8 +189,14 @@
 ;  Scala Mode
 (require 'scala-mode-auto)
 
+;  YAML Mode
+(require 'yaml-mode)
+(setq auto-mode-alist  (cons '(".yml$" . yaml-mode) auto-mode-alist))
+(add-hook 'yaml-mode-hook '(lambda () (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
 ;  HTML Mode
 (setq auto-mode-alist  (cons '(".rhtml$" . html-mode) auto-mode-alist))
+(setq auto-mode-alist  (cons '(".html$" . html-mode) auto-mode-alist))
 
 ;  Clojure Mode
 (require 'clojure-mode)

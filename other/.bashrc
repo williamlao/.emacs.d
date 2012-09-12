@@ -42,6 +42,7 @@ alias csvtotab='ruby ~/code/batch_clipper_app/extract/misc/csv_to_tab.rb'
 alias useproxy='http_proxy=10.0.10.1:3128'
 alias mysql_start='/usr/local/bin/mysql.server start'
 alias lhotsetunnel='ssh -N -D 7070 lhotse'
+alias python_server='python -m SimpleHTTPServer'
 function srm () {
   local path
   for path in "$@"; do
