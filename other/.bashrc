@@ -43,6 +43,7 @@ alias useproxy='http_proxy=10.0.10.1:3128'
 alias mysql_start='/usr/local/bin/mysql.server start'
 alias lhotsetunnel='ssh -N -D 7070 lhotse'
 alias python_server='python -m SimpleHTTPServer'
+alias dev101ip='10.20.18.11'
 function srm () {
   local path
   for path in "$@"; do
