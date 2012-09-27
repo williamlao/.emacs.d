@@ -23,6 +23,8 @@ rm ~/Library/Preferences/com.bjango.istatmenus.plist > /dev/null 2>&1
 PS1='\u:\w$ '
 PS1='\[\033[00;32m\]\u:\[\033[00;36m\]\w\[\033[00m\]\[\033[00;32m\]$(git_branch)\[\033[00m\]\[\033[00;31m\]\$\[\033[00m\]'
 PS2='> '
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER "$(history 1)" >> ~/.bash_eternal_history'
+PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 #Settings
 set history=5000
@@ -43,6 +45,7 @@ alias useproxy='http_proxy=10.0.10.1:3128'
 alias mysql_start='/usr/local/bin/mysql.server start'
 alias lhotsetunnel='ssh -N -D 7070 lhotse'
 alias python_server='python -m SimpleHTTPServer'
+alias javadoc='java -jar /usr/local/tools/javadocjarviewer*jar'
 alias dev101ip='10.20.18.11'
 function srm () {
   local path
