@@ -47,6 +47,7 @@ alias lhotsetunnel='ssh -N -D 7070 lhotse'
 alias python_server='python -m SimpleHTTPServer'
 alias javadoc='java -jar /usr/local/tools/javadocjarviewer*jar'
 alias dev101ip='10.20.18.11'
+alias hpm='/Users/Will/code/hitman/hpm/bin/hpm'
 function srm () {
   local path
   for path in "$@"; do
