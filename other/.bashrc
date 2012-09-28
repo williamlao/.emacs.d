@@ -45,7 +45,7 @@ alias useproxy='http_proxy=10.0.10.1:3128'
 alias mysql_start='/usr/local/bin/mysql.server start'
 alias lhotsetunnel='ssh -N -D 7070 lhotse'
 alias python_server='python -m SimpleHTTPServer'
-alias javadoc='java -jar /usr/local/tools/javadocjarviewer*jar'
+alias javadoc='java -jar /Applications/javadocjarviewer*jar'
 alias dev101ip='10.20.18.11'
 alias hpm='/Users/Will/code/hitman/hpm/bin/hpm'
 function srm () {
