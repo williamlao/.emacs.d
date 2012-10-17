@@ -206,6 +206,12 @@
 (require 'nrepl)
 
 
-;  Javascript Mode
-(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
-(autoload 'javascript-mode "javascript" nil t)
+; js2 Mode
+; M-x byte-compile-file RE js2.el RET
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+; Javascript mode
+;(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
+;(autoload 'javascript-mode "javascript" nil t)
+
