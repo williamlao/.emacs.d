@@ -1,17 +1,20 @@
 ;;; Will's .emacs file
 
 ;  MODES
-; 	For mode help type control-h m while in that mode
+;  For mode help type control-h m while in that mode
 
 ;  Load Path
 (add-to-list 'load-path "~/.emacs.d/")
+
+;; inhibut splash screen
+(setq inhibit-splash-screen t)
 
 ;  Color Theme
 (require 'color-theme)
 (eval-after-load "color-theme"
   '(progn
-	     (color-theme-initialize)
-			      (color-theme-hober)))
+     (color-theme-initialize)
+     (color-theme-hober)))
 
 ; IDO (buffer helper)
 (require 'ido)
@@ -19,15 +22,15 @@
 ;(setq ido-enable-flex-matching t)
 
 ;  Smooth Scrolling
-(setq redisplay-dont-pause t 
-      scroll-conservatively 1 
-      scroll-step 0) 
+(setq redisplay-dont-pause t
+      scroll-conservatively 1
+      scroll-step 0)
 
 ; Language
 (set-language-environment "utf-8")
 
 ;  Screen positioning
-(setq scroll-preserve-screen-position 'always) 
+(setq scroll-preserve-screen-position 'always)
 
 ; autocomplete
 (add-to-list 'load-path "~/.emacs.d/autocomplete/")
@@ -53,6 +56,9 @@
 ;  Display line and column numbers
 (setq line-number-mode t)
 (setq column-number-mode t)
+(setq fci-rule-column 80)
+(require 'fill-column-indicator)
+(add-hook 'after-change-major-mode-hook 'fci-mode)
 
 ;  Prevent extraneous tabs
 (setq-default indent-tabs-mode nil)
@@ -61,6 +67,10 @@
 (setq java-indent-offset 2)
 (setq java-indent-mode 2)
 (setq c-basic-offset 2)
+
+;; column maker
+(require 'column-marker)
+(global-set-key (kbd "C-x m") 'column-marker-2)
 
 ; Mamalade packages
 (require 'package)
@@ -74,7 +84,7 @@
 ;(setq slime-net-coding-system 'utf-8-unix)
 ;(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
 ;(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
-;(setq inferior-lisp-program "sbcl") 
+;(setq inferior-lisp-program "sbcl")
 ;(slime-setup '(slime-fancy))
 
 ;; Stop SLIME's REPL from grabbing DEL,
@@ -115,7 +125,7 @@
     (newline arg)
     (indent-according-to-mode)))
 
-; Emacs lisp mode hook  
+; Emacs lisp mode hook
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (paredit-mode t)
@@ -134,14 +144,14 @@
       '("red3" "darkgreen" "yellow3" "purple3" "orange3" "blue3"
         "red4" "darkgreen" "yellow4" "purple4" "orange4" "blue4"))
 
- (define-globalized-minor-mode global-highlight-parentheses-mode
+(define-globalized-minor-mode global-highlight-parentheses-mode
   highlight-parentheses-mode
-	  (lambda ()
-		  (highlight-parentheses-mode t)))
-			(global-highlight-parentheses-mode t)
+  (lambda ()
+    (highlight-parentheses-mode t)))
+(global-highlight-parentheses-mode t)
 
 (add-to-list 'load-path "which-folder-ace-jump-mode-file-in/")
-;; 
+;;
 ;; enable a more powerful jump back function from ace jump mode
 ;;
 (autoload
@@ -156,21 +166,25 @@
 ;  Show Whitespace
 (require 'whitespace)
 (global-set-key (kbd "C-x w") 'whitespace-mode)
+(setq whitespace-style '(face empty tabs lines-tail trailing))
+(global-whitespace-mode t)
 
-;  Define Key Mappings
-(define-key global-map "\C-x\C-u" 'undo) ; Prevent that annoying undo message (should be using C-_)
+;;  Define Key Mappingsss
+
+; Prevent that annoying undo message (should be using C-_)
+(define-key global-map "\C-x\C-u" 'undo)
 (define-key global-map "\C-\\" 'enlarge-window-horizontally) ; Enlarge window
 (define-key global-map "\C-]" 'shrink-window-horizontally) ; Shrink window
 (define-key global-map "\M-\\" 'enlarge-window) ; Enlarge window vertically
 (define-key global-map "\M-]" 'shrink-window) ; Shrink window vertically
 
-(global-set-key "\C-l" 'goto-line) ; [Ctrl]-[L] 
+(global-set-key "\C-l" 'goto-line) ; [Ctrl]-[L]
 (global-set-key (kbd "C-x C-b") 'buffer-menu) ; Buffer Menu in present window
 
 ;(setq word-wrap nil)
-;(setq visual-line-mode t) 
+;(setq visual-line-mode t)
 (setq-default truncate-lines t) ; default word-wrap to false
-(global-set-key (kbd "C-x C-l") 'toggle-truncate-lines) ; enable/disable word-wrap
+(global-set-key (kbd "C-x C-l") 'toggle-truncate-lines) ; toggle word-wrap
 
 (defun remove-dos-eol ()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
@@ -178,7 +192,7 @@
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
-;	Text Mode
+; Text Mode
 (setq major-mode 'text-mode)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
@@ -192,7 +206,8 @@
 ;  YAML Mode
 (require 'yaml-mode)
 (setq auto-mode-alist  (cons '(".yml$" . yaml-mode) auto-mode-alist))
-(add-hook 'yaml-mode-hook '(lambda () (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+(add-hook 'yaml-mode-hook
+          '(lambda () (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 ;  HTML Mode
 (setq auto-mode-alist  (cons '(".rhtml$" . html-mode) auto-mode-alist))
@@ -214,4 +229,3 @@
 ; Javascript mode
 ;(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 ;(autoload 'javascript-mode "javascript" nil t)
-
