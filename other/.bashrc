@@ -38,6 +38,9 @@ alias ssh='ssh -A'
 alias findword='find . | xargs grep -i'
 alias findfile='find . -iname'
 alias grep='grep --color=auto'
+alias jj="ruby -r json -ne 'puts jj JSON.parse($_)'"
+
+# project specific
 alias jsontotab='ruby ~/code/batch_clipper_app/extract/misc/json_to_tsv.rb'
 alias tabtojson='ruby ~/code/batch_clipper_app/extract/misc/tab_to_json.rb'
 alias csvtotab='ruby ~/code/batch_clipper_app/extract/misc/csv_to_tab.rb'

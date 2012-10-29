@@ -58,7 +58,9 @@
 (setq column-number-mode t)
 (setq fci-rule-column 80)
 (require 'fill-column-indicator)
-(add-hook 'after-change-major-mode-hook 'fci-mode)
+;(add-hook 'after-change-major-mode-hook 'fci-mode)
+(global-set-key (kbd "C-x 8") 'fci-mode)
+
 
 ;  Prevent extraneous tabs
 (setq-default indent-tabs-mode nil)
@@ -165,9 +167,9 @@
 
 ;  Show Whitespace
 (require 'whitespace)
-(global-set-key (kbd "C-x w") 'whitespace-mode)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
-(global-whitespace-mode t)
+;(global-whitespace-mode t)
+(global-set-key (kbd "C-x w") 'whitespace-mode)
 
 ;;  Define Key Mappingsss
 
