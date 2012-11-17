@@ -51,6 +51,7 @@ alias python_server='python -m SimpleHTTPServer'
 alias javadoc='java -jar /Applications/javadocjarviewer-0.2.0.jar '
 alias dev101ip='10.20.18.11'
 alias hpm='/Users/Will/code/hitman/hpm/bin/hpm'
+
 function srm () {
   local path
   for path in "$@"; do
@@ -94,7 +95,6 @@ export PATH="~/.lein/bin:$PATH"
 
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
 
-
 #Git bash_completion
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
@@ -105,7 +105,7 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 # Bash git-flow-completion
-source ~/.git-flow-completion.sh
+source ~/.emacs.d/other/.git-flow-completion.sh
 
 #Scarecrow bash-completion
 source ~/code/scarecrow/scarecrow-completion.bash
