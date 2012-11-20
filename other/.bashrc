@@ -5,19 +5,9 @@ mydate=`date '+%H:%M:%S %m/%d/%y'`
 echo Current time: $mydate
 echo "**********************************"
 
-# git branch detect
-function git_branch {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-  echo " [GIT:"${ref#refs/heads/}"] ";
-}
-
-function whatismyip {
-  wget http://automation.whatismyip.com/n09230945.asp -O - -q
-  echo
-}
-
-#Free istat menus
-rm ~/Library/Preferences/com.bjango.istatmenus.plist > /dev/null 2>&1
+#######################################################
+# Console Settings
+######################################################
 
 #Shell Vaiables
 PS1='\u:\w$ '
@@ -52,25 +42,6 @@ alias javadoc='java -jar /Applications/javadocjarviewer-0.2.0.jar '
 alias dev101ip='10.20.18.11'
 alias hpm='/Users/Will/code/hitman/hpm/bin/hpm'
 
-function srm () {
-  local path
-  for path in "$@"; do
-    # ignore any arguments
-    if [[ "$path" = -* ]]; then :
-    else
-      local dst=${path##*/}
-      # append the time if necessary
-      while [ -e ~/.Trash/"$dst" ]; do
-        dst="$dst "$(date +%H-%M-%S)
-      done
-      mv "$path" ~/.Trash/"$dst"
-    fi
-  done
-}
-function mid {
-  tail -n +$1 $2
-}
-
 #Exports
 export EDITOR=emacs
 export LANG="en_US.UTF-8"
@@ -88,14 +59,22 @@ export PATH=$SCALA_HOME:$PATH
 export PATH=$MONGO_HOME:$PATH
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="~/.play/play-1.2.1:$PATH"
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PATH="/usr/alocal/rvm:$PATH" #rvm
 export PATH="~/code/d:$PATH" # d
 export PATH="~/.lein/bin:$PATH"
-
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#[[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
 
-#Git bash_completion
+
+################################
+# Completions
+###############################
+
+# Bash git-flow-completion
+source ~/.emacs.d/other/.git-flow-completion.sh
+
+# Git bash_completion
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
@@ -104,14 +83,48 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-# Bash git-flow-completion
-source ~/.emacs.d/other/.git-flow-completion.sh
+# Scarecrow bash-completion
+#source ~/code/scarecrow/scarecrow-completion.bash
 
-#Scarecrow bash-completion
-source ~/code/scarecrow/scarecrow-completion.bash
+#################################
+# Misc Functions
+#################################
+
+# Reset istat menus's trial date
+rm ~/Library/Preferences/com.bjango.istatmenus.plist > /dev/null 2>&1
 
 
-# This loads RVM into a shell session
-[[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#################################
+# HELPER FUNCTIONS
+#################################
+
+function git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+  echo " [GIT:"${ref#refs/heads/}"] ";
+}
+
+function whatismyip {
+  wget http://automation.whatismyip.com/n09230945.asp -O - -q
+  echo
+}
+
+function srm () {
+  local path
+  for path in "$@"; do
+    # ignore any arguments
+    if [[ "$path" = -* ]]; then :
+    else
+      local dst=${path##*/}
+      # append the time if necessary
+      while [ -e ~/.Trash/"$dst" ]; do
+        dst="$dst "$(date +%H-%M-%S)
+      done
+      mv "$path" ~/.Trash/"$dst"
+    fi
+  done
+}
+
+function mid {
+  tail -n +$1 $2
+}
