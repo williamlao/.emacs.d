@@ -64,7 +64,7 @@ export PATH="~/.lein/bin:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-#[[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
+[[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
 
 
 ################################
@@ -75,10 +75,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 source ~/.emacs.d/other/.git-flow-completion.sh
 
 # Git bash_completion
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
-fi
-
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
