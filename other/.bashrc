@@ -21,7 +21,6 @@ set history=5000
 
 #Command Aliases
 alias ls='ls -GFh'
-alias ps='ps -e'
 alias cs="cd /Users/Will/Dropbox/CS"
 alias where="type -a"
 alias ssh='ssh -A'
@@ -29,6 +28,7 @@ alias findword='find . | xargs grep -i'
 alias findfile='find . -iname'
 alias grep='grep --color=auto'
 alias jj="ruby -r json -ne 'puts jj JSON.parse($_)'"
+alias stunnelstart="stunnel /usr/local/etc/stunnel/stunnel.conf"
 
 # project specific
 alias jsontotab='ruby ~/code/batch_clipper_app/extract/misc/json_to_tsv.rb'
