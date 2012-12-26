@@ -215,12 +215,20 @@
 (setq auto-mode-alist  (cons '(".rhtml$" . html-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '(".html$" . html-mode) auto-mode-alist))
 
+;  Rainbow delimiters
+(require 'rainbow-delimiters)
+
 ;  Clojure Mode
 (require 'clojure-mode)
 (setq auto-mode-alist  (cons '(".d$" . clojure-mode) auto-mode-alist))
+;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
-; require nrepl
+;  Require nrepl
 (require 'nrepl)
+(add-hook 'nrepl-interaction-mode-hook
+            'nrepl-turn-on-eldoc-mode)
+(add-hook 'nrepl-mode-hook 'paredit-mode)
+(add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
 
 
 ; js2 Mode
