@@ -29,6 +29,7 @@ alias findfile='find . -iname'
 alias grep='grep --color=auto'
 alias jj="ruby -r json -ne 'puts jj JSON.parse($_)'"
 alias stunnelstart="stunnel /usr/local/etc/stunnel/stunnel.conf"
+alias ip_reset="sudo ifconfig en0 down; sudo ifconfig en0 up"
 
 # project specific
 alias jsontotab='ruby ~/code/batch_clipper_app/extract/misc/json_to_tsv.rb'
