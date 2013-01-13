@@ -221,7 +221,7 @@
 ;  Clojure Mode
 (require 'clojure-mode)
 (setq auto-mode-alist  (cons '(".d$" . clojure-mode) auto-mode-alist))
-;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 ;  Require nrepl
 (require 'nrepl)
