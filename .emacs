@@ -237,5 +237,20 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ; Javascript mode
-;(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
-;(autoload 'javascript-mode "javascript" nil t)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
+(autoload 'javascript-mode "javascript" nil t)
+
+; show hide tabs
+(defun show-tabs ()
+  (interactive)
+  (let ((d (make-display-table)))
+    (aset d 9 (vector ?> ?> ?>))
+    (set-window-display-table nil d)))
+
+(defun hide-tabs ()
+  (interactive)
+  (set-window-display-table nil nil))
+
+(global-set-key (kbd "C-x t") 'show-tabs)
+(global-set-key (kbd "C-x g") 'hide-tabs)
+

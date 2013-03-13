@@ -19,6 +19,7 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER "$(history 
 #Settings
 set history=5000
 
+#gem install rails -p http://www-proxy.corp.factual.com:3128
 #Command Aliases
 alias ls='ls -GFh'
 alias cs="cd /Users/Will/Dropbox/CS"
