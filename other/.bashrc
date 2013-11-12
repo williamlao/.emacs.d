@@ -31,6 +31,7 @@ alias grep='grep --color=auto'
 alias jj="ruby -r json -ne 'puts jj JSON.parse($_)'"
 alias stunnelstart="stunnel /usr/local/etc/stunnel/stunnel.conf"
 alias ip_reset="sudo ifconfig en0 down; sudo ifconfig en0 up"
+alias startup101="ssh -i ~/.ssh/startup101.pem ubuntu@54.213.38.19"
 
 # project specific
 alias jsontotab='ruby ~/code/batch_clipper_app/extract/misc/json_to_tsv.rb'
@@ -64,6 +65,7 @@ export PATH="~/.play/play-1.2.1:$PATH"
 export PATH="~/code/d:$PATH" # d
 export PATH="~/.lein/bin:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH="~/bin:$PATH"
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
