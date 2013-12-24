@@ -31,7 +31,7 @@ alias grep='grep --color=auto'
 alias jj="ruby -r json -ne 'puts jj JSON.parse($_)'"
 alias stunnelstart="stunnel /usr/local/etc/stunnel/stunnel.conf"
 alias ip_reset="sudo ifconfig en0 down; sudo ifconfig en0 up"
-alias startup101="ssh -i ~/.ssh/startup101.pem ubuntu@54.213.38.19"
+alias ps="ps -e"
 
 # project specific
 alias jsontotab='ruby ~/code/batch_clipper_app/extract/misc/json_to_tsv.rb'
@@ -44,6 +44,7 @@ alias python_server='python -m SimpleHTTPServer'
 alias javadoc='java -jar /Applications/javadocjarviewer-0.2.0.jar '
 alias dev101ip='10.20.18.11'
 alias hpm='/Users/Will/code/hitman/hpm/bin/hpm'
+alias startup101="ssh -i ~/.ssh/startup101.pem ubuntu@54.213.38.19"
 
 #Exports
 export EDITOR=emacs
@@ -61,10 +62,12 @@ export VISCOSITY="~//Library/Application\ Support/Viscosity/OpenVPN"
 export PATH=$SCALA_HOME:$PATH
 export PATH=$MONGO_HOME:$PATH
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/Applications/MAMP/bin/php/php5.4.10/bin:$PATH"
 export PATH="~/.play/play-1.2.1:$PATH"
 export PATH="~/code/d:$PATH" # d
 export PATH="~/.lein/bin:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH="~/code/bitcoin/src:$PATH"
 export PATH="~/bin:$PATH"
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
