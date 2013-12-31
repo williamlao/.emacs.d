@@ -14,12 +14,10 @@ PS1='\u:\w$ '
 PS1='\[\033[00;32m\]\u:\[\033[00;36m\]\w\[\033[00m\]\[\033[00;32m\]$(git_branch)\[\033[00m\]\[\033[00;31m\]\$\[\033[00m\]'
 PS2='> '
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER "$(history 1)" >> ~/.bash_eternal_history'
-#PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 #Settings
 set history=5000
 
-#gem install rails -p http://www-proxy.corp.factual.com:3128
 #Command Aliases
 alias ls='ls -GFh'
 alias cs="cd /Users/Will/Dropbox/CS"
@@ -28,22 +26,25 @@ alias ssh='ssh -A'
 alias findword='find . | xargs grep -i'
 alias findfile='find . -iname'
 alias grep='grep --color=auto'
-alias jj="ruby -r json -ne 'puts jj JSON.parse($_)'"
-alias stunnelstart="stunnel /usr/local/etc/stunnel/stunnel.conf"
 alias ip_reset="sudo ifconfig en0 down; sudo ifconfig en0 up"
 alias ps="ps -e"
 
 # project specific
+alias cdadk='cd /Applications/adt-bundle-mac-x86_64-20131030/sdk'
+alias cdviscosity='cd ~/Library/Application\ Support/Viscosity/OpenVPN'
+
 alias jsontotab='ruby ~/code/batch_clipper_app/extract/misc/json_to_tsv.rb'
 alias tabtojson='ruby ~/code/batch_clipper_app/extract/misc/tab_to_json.rb'
 alias csvtotab='ruby ~/code/batch_clipper_app/extract/misc/csv_to_tab.rb'
-alias useproxy='http_proxy=10.0.10.1:3128'
+
 alias mysql_start='/usr/local/bin/mysql.server start'
-alias lhotsetunnel='ssh -N -D 7070 lhotse'
 alias python_server='python -m SimpleHTTPServer'
+
 alias javadoc='java -jar /Applications/javadocjarviewer-0.2.0.jar '
-alias dev101ip='10.20.18.11'
-alias hpm='/Users/Will/code/hitman/hpm/bin/hpm'
+alias stunnelstart="stunnel /usr/local/etc/stunnel/stunnel.conf"
+
+alias useproxy='http_proxy=10.0.10.1:3128'
+alias lhotsetunnel='ssh -N -D 7070 lhotse'
 alias startup101="ssh -i ~/.ssh/startup101.pem ubuntu@54.213.38.19"
 
 #Exports
@@ -57,7 +58,6 @@ export JAVA_HOME=/Library/Java/Home
 export SCALA_HOME=/usr/local/scala/scala-2.9.0/bin
 export CLOJURE_HOME=/usr/local/clojure
 export MONGO_HOME=/usr/local/mongodb/bin
-export VISCOSITY="~//Library/Application\ Support/Viscosity/OpenVPN"
 
 export PATH=$SCALA_HOME:$PATH
 export PATH=$MONGO_HOME:$PATH
@@ -70,7 +70,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="~/code/bitcoin/src:$PATH"
 export PATH="~/bin:$PATH"
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
 
 
@@ -86,17 +85,12 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-# Scarecrow bash-completion
-#source ~/code/scarecrow/scarecrow-completion.bash
-
 #################################
 # Misc Functions
 #################################
 
 # Reset istat menus's trial date
 rm ~/Library/Preferences/com.bjango.istatmenus.plist > /dev/null 2>&1
-
-
 
 #################################
 # HELPER FUNCTIONS
