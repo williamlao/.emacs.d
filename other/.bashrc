@@ -55,12 +55,10 @@ export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export LS_COLORS=$LSCOLORS
 export JAVA_HOME=/Library/Java/Home
-export SCALA_HOME=/usr/local/scala/scala-2.9.0/bin
 export CLOJURE_HOME=/usr/local/clojure
-export MONGO_HOME=/usr/local/mongodb/bin
 
-export PATH=$SCALA_HOME:$PATH
-export PATH=$MONGO_HOME:$PATH
+export PATH="/usr/local/scala/scala-2.9.0/bin:$PATH"
+export PATH="/usr/local/mongodb/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/Applications/MAMP/bin/php/php5.4.10/bin:$PATH"
 export PATH="~/.play/play-1.2.1:$PATH"
@@ -69,6 +67,7 @@ export PATH="~/.lein/bin:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="~/code/bitcoin/src:$PATH"
 export PATH="~/bin:$PATH"
+export PATH="/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:$PATH"
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
 [[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
 
