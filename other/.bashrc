@@ -37,7 +37,6 @@ alias jsontotab='ruby ~/code/batch_clipper_app/extract/misc/json_to_tsv.rb'
 alias tabtojson='ruby ~/code/batch_clipper_app/extract/misc/tab_to_json.rb'
 alias csvtotab='ruby ~/code/batch_clipper_app/extract/misc/csv_to_tab.rb'
 
-alias mysql_start='/usr/local/bin/mysql.server start'
 alias python_server='python -m SimpleHTTPServer'
 
 alias javadoc='java -jar /Applications/javadocjarviewer-0.2.0.jar '
@@ -61,6 +60,7 @@ export PATH="/usr/local/scala/scala-2.9.0/bin:$PATH"
 export PATH="/usr/local/mongodb/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/Applications/MAMP/bin/php/php5.4.10/bin:$PATH"
+export PATH="/Applications/MAMP/Library/bin:$PATH" # use mysql from MAMP
 export PATH="~/.play/play-1.2.1:$PATH"
 export PATH="~/code/d:$PATH" # d
 export PATH="~/.lein/bin:$PATH"
