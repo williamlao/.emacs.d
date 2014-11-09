@@ -75,10 +75,10 @@
 (global-set-key (kbd "C-x m") 'column-marker-2)
 
 ; Mamalade packages
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+;(require 'package)
+;(add-to-list 'package-archives
+;             '("marmalade" . "http://marmalade-repo.org/packages/"))
+;(package-initialize)
 
 ;  Slime (commenting out for now to use clojure-jack-in)
 ;(add-to-list 'load-path "~/.emacs.d/slime-2012-07-05")
