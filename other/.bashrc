@@ -89,7 +89,7 @@ fi
 #################################
 
 # Reset istat menus's trial date
-rm ~/Library/Preferences/com.bjango.istatmenus.plist > /dev/null 2>&1
+#rm ~/Library/Preferences/com.bjango.istatmenus.plist > /dev/null 2>&1
 
 #################################
 # HELPER FUNCTIONS

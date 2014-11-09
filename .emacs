@@ -253,4 +253,3 @@
 
 (global-set-key (kbd "C-x t") 'show-tabs)
 (global-set-key (kbd "C-x g") 'hide-tabs)
-
