@@ -4,7 +4,7 @@
 ;  For mode help type control-h m while in that mode
 
 ;  Load Path
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; inhibut splash screen
 (setq inhibit-splash-screen t)
