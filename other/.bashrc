@@ -68,9 +68,12 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="~/code/bitcoin/src:$PATH"
 export PATH="~/bin:$PATH"
 export PATH="/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
 [[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
-
+[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 ################################
 # Completions
@@ -124,3 +127,4 @@ function srm () {
 function mid {
   tail -n +$1 $2
 }
+
