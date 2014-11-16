@@ -29,9 +29,11 @@ alias grep='grep --color=auto'
 alias ip_reset="sudo ifconfig en0 down; sudo ifconfig en0 up"
 alias ps="ps -e"
 
+
 # project specific
 alias cdadk='cd /Applications/adt-bundle-mac-x86_64-20131030/sdk'
 alias cdviscosity='cd ~/Library/Application\ Support/Viscosity/OpenVPN'
+alias cdbitcoin='cd ~/Library/Application\ Support/Bitcoin'
 
 alias jsontotab='ruby ~/code/batch_clipper_app/extract/misc/json_to_tsv.rb'
 alias tabtojson='ruby ~/code/batch_clipper_app/extract/misc/tab_to_json.rb'
@@ -65,37 +67,43 @@ export PATH="~/.play/play-1.2.1:$PATH"
 export PATH="~/code/d:$PATH" # d
 export PATH="~/.lein/bin:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PATH="~/code/bitcoin/src:$PATH"
 export PATH="~/bin:$PATH"
 export PATH="/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
 [[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
 
+#################################
+# Helper Functions
+#################################
+
 ################################
 # Completions
 ###############################
-
-# Bash git-flow-completion
-source ~/.emacs.d/other/.git-flow-completion.sh
 
 # Git bash_completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-#################################
-# Misc Functions
-#################################
+# Bash git-flow-completion
+source ~/.emacs.d/other/.git-flow-completion.sh
 
-# Reset istat menus's trial date
-#rm ~/Library/Preferences/com.bjango.istatmenus.plist > /dev/null 2>&1
+have()
+{
+    unset -v have
+    # Completions for system administrator commands are installed as well in
+    # case completion is attempted via `sudo command ...'.
+    PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin type $1 &>/dev/null &&
+    have="yes"
+}
+source ~/code/bitcoin/contrib/bitcoind.bash-completion
+
 
 #################################
-# HELPER FUNCTIONS
+# MISC FUNCTIONS
 #################################
 
 function git_branch {
@@ -128,3 +136,6 @@ function mid {
   tail -n +$1 $2
 }
 
+# if want mysql on login
+# ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
