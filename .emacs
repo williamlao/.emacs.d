@@ -32,11 +32,27 @@
 ;  Screen positioning
 (setq scroll-preserve-screen-position 'always)
 
+; yasnippet
+(add-to-list 'load-path "~/.emacs.d/yasnippet-0.8.0/")
+(require 'yasnippet) ;; not yasnippet-bundle
+(yas-global-mode 1)
+(yas--initialize)
+;; Load the snippet files themselves
+(yas/load-directory "~/.emacs.d/yasnippet-0.8.0/snippets")
+
 ; autocomplete
 (add-to-list 'load-path "~/.emacs.d/autocomplete/")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/autocomplete//ac-dict")
 (ac-config-default)
+;;; set the trigger key so that it can work together with yasnippet on tab key,
+;;; if the word exists in yasnippet, pressing tab will cause yasnippet to
+;;; activate, otherwise, auto-complete will
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")
+
+;; Let's have snippets in the auto-complete dropdown
+(add-to-list 'ac-sources 'ac-source-yasnippet)
 
 ; window title
 (setq frame-title-format '("Emacs @ " system-name ": %b %+%+ %f"))
@@ -111,6 +127,15 @@
     (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
     (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
 
+;; Paraedit for all!
+(defun my-paredit-nonlisp ()
+    "Turn on paredit mode for non-lisps."
+      (interactive)
+        (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+                    '((lambda (endp delimiter) nil)))
+          (paredit-mode 1))
+
+
 ;; Paredit electric return
 (defvar electrify-return-match
   "[\]}\)\"]"
@@ -152,7 +177,6 @@
     (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
 
-(add-to-list 'load-path "which-folder-ace-jump-mode-file-in/")
 ;;
 ;; enable a more powerful jump back function from ace jump mode
 ;;
@@ -235,10 +259,25 @@
 ; M-x byte-compile-file RE js2.el RET
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(setq js2-highlight-level 3)
 
-; Javascript mode
-(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
-(autoload 'javascript-mode "javascript" nil t)
+;; beautify code
+;;    npm install -g js-beautify
+(require 'web-beautify) ;; Not necessary if using ELPA package
+(eval-after-load 'js2-mode
+    '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
+;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
+(eval-after-load 'js
+    '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))
+
+(eval-after-load 'json-mode
+    '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
+
+(eval-after-load 'sgml-mode
+    '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
+
+(eval-after-load 'css-mode
+    '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))
 
 ; show hide tabs
 (defun show-tabs ()

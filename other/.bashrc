@@ -106,7 +106,10 @@ have()
     PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin type $1 &>/dev/null &&
     have="yes"
 }
-source ~/code/bitcoin/contrib/bitcoind.bash-completion
+
+if [ -f ~/code/bitcoin/contrib/bitcoind.bash-completion ]; then
+    source ~/code/bitcoin/contrib/bitcoind.bash-completion
+fi
 
 
 #################################
