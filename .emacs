@@ -1,3 +1,4 @@
+;;;
 ;;; Will's .emacs file
 
 ;  MODES
@@ -298,3 +299,7 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;(add-hook 'js-mode-hook
 ;(lambda () (flycheck-mode t)))
+
+; auto resize split screens by golden ratio 
+(require 'golden-ratio)
+(golden-ratio-mode 1)
