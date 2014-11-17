@@ -292,3 +292,9 @@
 
 (global-set-key (kbd "C-x t") 'show-tabs)
 (global-set-key (kbd "C-x g") 'hide-tabs)
+
+; flycheck
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+;(add-hook 'js-mode-hook
+;(lambda () (flycheck-mode t)))
