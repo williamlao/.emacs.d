@@ -1,5 +1,4 @@
-;;;
-;;; Will's .emacs file
+;  Will's .emacs file
 
 ;  MODES
 ;  For mode help type control-h m while in that mode
@@ -208,6 +207,8 @@
 (global-set-key "\C-l" 'goto-line) ; [Ctrl]-[L]
 (global-set-key (kbd "C-x C-b") 'buffer-menu) ; Buffer Menu in present window
 
+(global-set-key (kbd "C-c C-c") 'comment-region) ; Comment region
+
 ;(setq word-wrap nil)
 ;(setq visual-line-mode t)
 (setq-default truncate-lines t) ; default word-wrap to false
@@ -294,12 +295,26 @@
 (global-set-key (kbd "C-x t") 'show-tabs)
 (global-set-key (kbd "C-x g") 'hide-tabs)
 
-; flycheck
+;; flycheck
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-;(add-hook 'js-mode-hook
-;(lambda () (flycheck-mode t)))
+
+;; Remove newline checks, since they would trigger an immediate check
+;; when we want the idle-change-delay to be in effect while editing.
+(setq flycheck-check-syntax-automatically '(save
+                                            idle-change))
+
+(setq flycheck-idle-change-delay 10)
+(setq flycheck-highlighting-mode 'symbols)
+(setq flycheck-indication-mode 'left-fringe)
+
+(global-set-key  (kbd "C-c C-p") 'flycheck-previous-error) 
+(global-set-key  (kbd "C-c C-n") 'flycheck-next-error)
 
 ; auto resize split screens by golden ratio 
 (require 'golden-ratio)
 (golden-ratio-mode 1)
+
+(provide '.emacs)
+;;; .emacs
+
