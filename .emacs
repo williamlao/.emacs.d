@@ -204,10 +204,11 @@
 (define-key global-map "\M-\\" 'enlarge-window) ; Enlarge window vertically
 (define-key global-map "\M-]" 'shrink-window) ; Shrink window vertically
 
-(global-set-key "\C-l" 'goto-line) ; [Ctrl]-[L]
+(global-set-key (kbd "C-l") 'goto-line) 
 (global-set-key (kbd "C-x C-b") 'buffer-menu) ; Buffer Menu in present window
 
-(global-set-key (kbd "C-c C-c") 'comment-region) ; Comment region
+(global-set-key (kbd "C-c C-c") 'comment-region)   ; Comment region
+(global-set-key (kbd "C-c C-v") 'uncomment-region) ; Uncomment region
 
 ;(setq word-wrap nil)
 ;(setq visual-line-mode t)
