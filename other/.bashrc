@@ -23,7 +23,7 @@ alias ls='ls -GFh'
 alias cs="cd /Users/Will/Dropbox/CS"
 alias where="type -a"
 alias ssh='ssh -A'
-alias findword='find . | xargs grep -i'
+alias findword='find . -type f | xargs grep -i'
 alias findfile='find . -iname'
 alias grep='grep --color=auto'
 alias ip_reset="sudo ifconfig en0 down; sudo ifconfig en0 up"
