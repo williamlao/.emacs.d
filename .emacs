@@ -35,10 +35,8 @@
 ; yasnippet
 (add-to-list 'load-path "~/.emacs.d/yasnippet-0.8.0/")
 (require 'yasnippet) ;; not yasnippet-bundle
+(setq yas/snippet-dirs "~/.emacs.d/yasnippet-0.8.0/snippets")
 (yas-global-mode 1)
-(yas--initialize)
-;; Load the snippet files themselves
-(yas/load-directory "~/.emacs.d/yasnippet-0.8.0/snippets")
 
 ; autocomplete
 (add-to-list 'load-path "~/.emacs.d/autocomplete/")
