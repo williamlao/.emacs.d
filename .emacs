@@ -207,8 +207,8 @@
 (global-set-key (kbd "C-l") 'goto-line) 
 (global-set-key (kbd "C-x C-b") 'buffer-menu) ; Buffer Menu in present window
 
-(global-set-key (kbd "C-c C-c") 'comment-region)   ; Comment region
-(global-set-key (kbd "C-c C-v") 'uncomment-region) ; Uncomment region
+(global-set-key (kbd "C-c c") 'comment-region)   ; Comment region
+(global-set-key (kbd "C-c v") 'uncomment-region) ; Uncomment region
 
 ;(setq word-wrap nil)
 ;(setq visual-line-mode t)
