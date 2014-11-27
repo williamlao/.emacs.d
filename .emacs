@@ -85,32 +85,25 @@
 (setq java-indent-offset 2)
 (setq java-indent-mode 2)
 (setq c-basic-offset 2)
+(setq js-indent-level 2)
 
 ;; column maker
 (require 'column-marker)
 (global-set-key (kbd "C-x m") 'column-marker-2)
 
-; Mamalade packages
-;(require 'package)
-;(add-to-list 'package-archives
-;             '("marmalade" . "http://marmalade-repo.org/packages/"))
-;(package-initialize)
+; Packages
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
-;  Slime (commenting out for now to use clojure-jack-in)
-;(add-to-list 'load-path "~/.emacs.d/slime-2012-07-05")
-;(require 'slime)
-;(setq slime-net-coding-system 'utf-8-unix)
-;(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-;(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
-;(setq inferior-lisp-program "sbcl")
-;(slime-setup '(slime-fancy))
+;; (add-to-list 'package-archives
+;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
 
-;; Stop SLIME's REPL from grabbing DEL,
-;; which is annoying when backspacing over a '('
-;(defun override-slime-repl-bindings-with-paredit ()
-;(define-key slime-repl-mode-map
-;  (read-kbd-macro paredit-backward-delete-key) nil))
-;(add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
+(package-initialize)
+
 
 ;  Set Paren Matching (highlights the matching paren)
 (show-paren-mode 1)
@@ -178,6 +171,18 @@
 (global-highlight-parentheses-mode t)
 
 ;;
+;; ace jump mode major function
+;; 
+(autoload
+    'ace-jump-mode
+      "ace-jump-mode"
+        "Emacs quick move minor mode"
+          t)
+;; you can select the key you prefer to
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(setq ace-jump-mode-gray-background nil)
+
+;;
 ;; enable a more powerful jump back function from ace jump mode
 ;;
 (autoload
@@ -207,8 +212,8 @@
 (global-set-key (kbd "C-l") 'goto-line) 
 (global-set-key (kbd "C-x C-b") 'buffer-menu) ; Buffer Menu in present window
 
-(global-set-key (kbd "C-c c") 'comment-region)   ; Comment region
-(global-set-key (kbd "C-c v") 'uncomment-region) ; Uncomment region
+(global-set-key (kbd "C-c C-c") 'comment-region)   ; Comment region
+(global-set-key (kbd "C-c C-v") 'uncomment-region) ; Uncomment region
 
 ;(setq word-wrap nil)
 ;(setq visual-line-mode t)
