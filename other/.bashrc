@@ -29,6 +29,7 @@ alias grep='grep --color=auto'
 alias ip_reset="sudo ifconfig en0 down; sudo ifconfig en0 up"
 alias ps="ps -e"
 alias folderdu="du -sh *"
+alias findport="lsof -i tcp:"
 
 
 # project specific
@@ -53,7 +54,7 @@ alias vg1tunnel='sudo ssh -i ~/.ssh/will -p 2223 will@localhost'
 alias m1tunnel='sudo ssh -i ~/.ssh/will -p 2224 will@localhost'
 alias emaillog='/Applications/MAMP/bin/php/php5.4.10/bin/php application/bin/cli.php email printemail'
 alias emailsender='/Applications/MAMP/bin/php/php5.4.10/bin/php application/bin/cli.php email mailsender'
-
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 #Exports
 export EDITOR=emacs
@@ -149,3 +150,8 @@ function mid {
 # if want mysql on login
 # ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+
+# if want redis on login
+# ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+# redis-server /usr/local/etc/redis.conf
