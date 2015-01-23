@@ -1,7 +1,27 @@
 {
-  "ignored_packages": [
-    "Vintage"
-  ],
-  "update_check": false,
-  "binary_file_patterns": ["dist/*", "node_modules/*", "*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"]
+	"binary_file_patterns":
+	[
+		"dist/*",
+		".tmp/*",
+		"bower_components/*",
+		"node_modules/*",
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip"
+	],
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"update_check": false
 }

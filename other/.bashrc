@@ -78,6 +78,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="~/bin:$PATH"
 export PATH="/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
 [[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
@@ -126,6 +127,45 @@ function whatismyip {
   wget http://automation.whatismyip.com/n09230945.asp -O - -q
   echo
 }
+
+# Easily extract all compressed file types
+extract () {
+   if [ -f "$1" ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf -- "$1"    ;;
+           *.tar.gz)    tar xvzf -- "$1"    ;;
+           *.bz2)       bunzip2 -- "$1"     ;;
+           *.rar)       unrar x -- "$1"     ;;
+           *.gz)        gunzip -- "$1"      ;;
+           *.tar)       tar xvf -- "$1"     ;;
+           *.tbz2)      tar xvjf -- "$1"    ;;
+           *.tgz)       tar xvzf -- "$1"    ;;
+           *.zip)       unzip -- "$1"       ;;
+           *.Z)         uncompress -- "$1"  ;;
+           *.7z)        7z x -- "$1"        ;;
+           *)           echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file"
+   fi
+}
+
+# Epoch time conversion
+epoch() {
+  TESTREG="[\d{10}]"
+  if [[ "$1" =~ $TESTREG ]]; then
+    # is epoch
+    date -r $*
+  else
+    # is date
+    if [ $# -gt 0 ]; then
+      date +%s --date="$*"
+    else
+      date +%s
+    fi
+  fi
+}
+
 
 function srm () {
   local path

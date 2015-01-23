@@ -8,7 +8,7 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["super+o"], "command": "prompt_open" },
 	{ "keys": ["super+shift+t"], "command": "reopen_last_file" },
 	{ "keys": ["super+alt+up"], "command": "switch_file", "args": {"extensions": ["cpp", "cxx", "cc", "c", "hpp", "hxx", "h", "ipp", "inl", "m", "mm"]} },
-	{ "keys": ["super+n"], "command": "new_file" },
+	{ "keys": ["ctrl+n"], "command": "new_file" },
 	{ "keys": ["super+s"], "command": "save" },
 	{ "keys": ["super+shift+s"], "command": "prompt_save_as" },
 	{ "keys": ["super+alt+s"], "command": "save_all" },
@@ -176,7 +176,7 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	},
 
 	{ "keys": ["super+t"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
-	{ "keys": ["super+p"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+	{ "keys": ["super+n"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 	{ "keys": ["super+shift+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
 	{ "keys": ["super+ctrl+p"], "command": "prompt_select_workspace" },
 	{ "keys": ["super+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },

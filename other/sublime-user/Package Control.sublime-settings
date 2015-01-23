@@ -1,7 +1,13 @@
 {
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
 		"BracketHighlighter",
-		"JsFormat"
+		"JsFormat",
+		"Package Control"
 	]
 }
