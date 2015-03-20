@@ -75,7 +75,6 @@
 ;(add-hook 'after-change-major-mode-hook 'fci-mode)
 (global-set-key (kbd "C-x 8") 'fci-mode)
 
-
 ;  Prevent extraneous tabs
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 2)
@@ -191,6 +190,12 @@
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;; Activate occur easily inside isearch
+(define-key isearch-mode-map (kbd "C-o")
+  (lambda () (interactive)
+    (let ((case-fold-search isearch-case-fold-search))
+            (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
 
 ;  Show Whitespace
 (require 'whitespace)
@@ -316,6 +321,13 @@
 
 (global-set-key (kbd "C-x t") 'show-tabs)
 (global-set-key (kbd "C-x g") 'hide-tabs)
+
+;; goto-line-percent
+(defun goto-percent (percent)
+  "Goto PERCENT of buffer."
+  (interactive "nGoto percent: ")
+  (goto-char (/ (* percent (point-max)) 100)))
+(global-set-key (kbd "C-x p") 'goto-percent)
 
 ;; flycheck
 (require 'flycheck)

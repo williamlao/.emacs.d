@@ -37,9 +37,9 @@ alias cdadk='cd /Applications/adt-bundle-mac-x86_64-20131030/sdk'
 alias cdviscosity='cd ~/Library/Application\ Support/Viscosity/OpenVPN'
 alias cdbitcoin='cd ~/Library/Application\ Support/Bitcoin'
 
-alias jsontotab='ruby ~/code/batch_clipper_app/extract/misc/json_to_tsv.rb'
-alias tabtojson='ruby ~/code/batch_clipper_app/extract/misc/tab_to_json.rb'
-alias csvtotab='ruby ~/code/batch_clipper_app/extract/misc/csv_to_tab.rb'
+alias jsontotab='ruby ~/code/utils/json_to_tsv.rb'
+alias tabtojson='ruby ~/code/utils/tab_to_json.rb'
+alias csvtotab='ruby ~/code/utils/csv_to_tab.rb'
 
 alias python_server='python -m SimpleHTTPServer'
 
