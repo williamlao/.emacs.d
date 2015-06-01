@@ -238,7 +238,10 @@
 (setq auto-mode-alist  (cons '(".rb$" . ruby-mode) auto-mode-alist))
 
 ;  Scala Mode
-(require 'scala-mode-auto)
+;(require 'scala-mode-auto)
+
+(require 'ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ;  YAML Mode
 (require 'yaml-mode)

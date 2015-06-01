@@ -30,7 +30,7 @@ alias ip_reset="sudo ifconfig en0 down; sudo ifconfig en0 up"
 alias ps="ps -e"
 alias folderdu="du -sh *"
 alias findport="lsof -i tcp:"
-
+alias git_prune_local="git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' | xargs git branch -d"
 
 # project specific
 alias cdadk='cd /Applications/adt-bundle-mac-x86_64-20131030/sdk'
@@ -56,6 +56,12 @@ alias emaillog='/Applications/MAMP/bin/php/php5.4.10/bin/php application/bin/cli
 alias emailsender='/Applications/MAMP/bin/php/php5.4.10/bin/php application/bin/cli.php email mailsender'
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
+alias cnpm="npm --registry=https://registry.npm.taobao.org \
+--cache=$HOME/.npm/.cache/cnpm \
+--disturl=https://npm.taobao.org/dist" 
+
+source ~/.aws
+
 #Exports
 export EDITOR=emacs
 export LANG="en_US.UTF-8"
@@ -63,7 +69,8 @@ export LC_ALL="en_US.UTF-8"
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export LS_COLORS=$LSCOLORS
-export JAVA_HOME=/Library/Java/Home
+#export JAVA_HOME=/Library/Java/Home
+export JAVA_HOME=$(/usr/libexec/java_home)
 export CLOJURE_HOME=/usr/local/clojure
 
 export PATH="/usr/local/scala/scala-2.9.0/bin:$PATH"
@@ -78,6 +85,8 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="~/bin:$PATH"
 export PATH="/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/PredictionIO/bin"
+export PATH="$PATH:$HOME/code/spark/bin"
 #export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 #export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
@@ -195,3 +204,5 @@ function mid {
 # ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 # redis-server /usr/local/etc/redis.conf
+
+# emacs change mac file to utf : set-buffer-file-coding-system

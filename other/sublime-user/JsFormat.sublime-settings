@@ -1,7 +1,7 @@
 {
 
 	// jsformat options
-	"format_on_save": true,
+	"format_on_save": false,
 	"jsbeautifyrc_files": true
 
 }
