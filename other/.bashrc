@@ -44,16 +44,7 @@ alias csvtotab='ruby ~/code/utils/csv_to_tab.rb'
 alias python_server='python -m SimpleHTTPServer'
 
 alias javadoc='java -jar /Applications/javadocjarviewer-0.2.0.jar '
-alias stunnelstart="stunnel /usr/local/etc/stunnel/stunnel.conf"
 
-alias useproxy='http_proxy=10.0.10.1:3128'
-alias lhotsetunnel='ssh -N -D 7070 lhotse'
-alias hktunnel='sudo ssh -i ~/.ssh/will -L 2222:54.249.125.27:22 root@119.9.74.16'
-alias vpntunnel='sudo ssh -i ~/.ssh/will -p 2222 -L 2223:172.31.23.80:22 -L 2224:172.31.10.54:22 will@localhost'
-alias vg1tunnel='sudo ssh -i ~/.ssh/will -p 2223 will@localhost'
-alias m1tunnel='sudo ssh -i ~/.ssh/will -p 2224 will@localhost'
-alias emaillog='/Applications/MAMP/bin/php/php5.4.10/bin/php application/bin/cli.php email printemail'
-alias emailsender='/Applications/MAMP/bin/php/php5.4.10/bin/php application/bin/cli.php email mailsender'
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
@@ -87,9 +78,9 @@ export PATH="/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/PredictionIO/bin"
 export PATH="$PATH:$HOME/code/spark/bin"
-#export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export PATH="$PATH:/anaconda/bin"
 
-#export DYLD_LIBRARY_PATH="/usr/local/lib/temp" #:/Users/Will/factual/re2" # adding re2 and its jni path
+
 [[ -s "/Users/Will/.rvm/scripts/rvm" ]] && source "/Users/Will/.rvm/scripts/rvm"
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
 
